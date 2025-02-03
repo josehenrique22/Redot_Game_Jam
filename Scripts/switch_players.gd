@@ -13,7 +13,7 @@ func initialize(player_1_node:Node, player_2_node:Node) -> void:
 	enable_controls(player_1)
 	disable_controls(player_2)
 
-func switch_player() -> void:
+func switch_player():
 	if current_player == player_1:
 		current_player = player_2
 		enable_controls(player_2)
