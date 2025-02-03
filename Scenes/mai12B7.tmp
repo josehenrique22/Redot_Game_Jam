@@ -1,0 +1,49 @@
+[gd_scene load_steps=11 format=3 uid="uid://bvk276fdk46m7"]
+
+[ext_resource type="PackedScene" uid="uid://bye3jk1qumaij" path="res://Scenes/player_scene.tscn" id="1_7c6yj"]
+[ext_resource type="PackedScene" uid="uid://di32ui0a041ju" path="res://Scenes/player_scene_2.tscn" id="2_h1xh8"]
+[ext_resource type="Script" path="res://Scripts/player_control_resource.gd" id="2_xx22x"]
+[ext_resource type="PackedScene" uid="uid://bti108at5s5lu" path="res://Scenes/switch_char.tscn" id="3_sykxj"]
+[ext_resource type="Script" path="res://Scripts/switch_players.gd" id="4_bdsve"]
+[ext_resource type="Script" path="res://Scripts/camera_players.gd" id="6_vi5xu"]
+[ext_resource type="PackedScene" uid="uid://brab2hsq7lr5n" path="res://Scenes/object_scene.tscn" id="7_hypj2"]
+
+[sub_resource type="Resource" id="Resource_rw8vj"]
+script = ExtResource("2_xx22x")
+
+[sub_resource type="Resource" id="Resource_scalj"]
+script = ExtResource("2_xx22x")
+
+[sub_resource type="Resource" id="Resource_abmgq"]
+script = ExtResource("4_bdsve")
+
+[node name="main_scene" type="Node2D"]
+position = Vector2(-8, -83)
+
+[node name="Player" parent="." groups=["player1"] instance=ExtResource("1_7c6yj")]
+position = Vector2(184, 262)
+control_resource = SubResource("Resource_rw8vj")
+
+[node name="Player2" parent="." groups=["player2"] instance=ExtResource("2_h1xh8")]
+position = Vector2(449, 262)
+control_resource = SubResource("Resource_scalj")
+
+[node name="SwitchChar" parent="." node_paths=PackedStringArray("player_node_1", "player_node_2") instance=ExtResource("3_sykxj")]
+switch_player = SubResource("Resource_abmgq")
+player_node_1 = NodePath("../Player")
+player_node_2 = NodePath("../Player2")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("point_position_1")]
+position = Vector2(324, 261)
+script = ExtResource("6_vi5xu")
+point_position_1 = NodePath("../PointToCamera/Node2D_point")
+
+[node name="PointToCamera" type="Node" parent="."]
+
+[node name="Node2D_point" type="Node2D" parent="PointToCamera"]
+position = Vector2(313, 175)
+
+[node name="Object" parent="." node_paths=PackedStringArray("point_object_1", "point_object_2") instance=ExtResource("7_hypj2")]
+position = Vector2(283, 214)
+point_object_1 = NodePath("../Player")
+point_object_2 = NodePath("../Player2")

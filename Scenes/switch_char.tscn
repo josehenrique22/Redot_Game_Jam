@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bti108at5s5lu"]
+
+[ext_resource type="Script" path="res://Scripts/switch_char.gd" id="1_5klrw"]
+
+[node name="SwitchChar" type="Node"]
+script = ExtResource("1_5klrw")

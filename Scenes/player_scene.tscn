@@ -1,0 +1,151 @@
+[gd_scene load_steps=13 format=3 uid="uid://bye3jk1qumaij"]
+
+[ext_resource type="Script" path="res://Scripts/player_movement.gd" id="1_6np2y"]
+[ext_resource type="Texture2D" uid="uid://dwdmxw1bqnpsf" path="res://Assets/Player1/Character.png" id="2_13mk3"]
+[ext_resource type="AudioStream" uid="uid://cou26edui8b62" path="res://Sounds/cute_walk_sound.mp3" id="3_7uns0"]
+
+[sub_resource type="Animation" id="Animation_i57dd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_1asff"]
+resource_name = "down_walk"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_ynfi8"]
+resource_name = "idle"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_i8bl0"]
+resource_name = "idle_hold_down"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_nqtut"]
+resource_name = "idle_hold_up"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="Animation" id="Animation_qqat2"]
+resource_name = "idle_up"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_68qih"]
+resource_name = "walk_up"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333, 0.3663),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xt113"]
+_data = {
+"RESET": SubResource("Animation_i57dd"),
+"down_walk": SubResource("Animation_1asff"),
+"idle": SubResource("Animation_ynfi8"),
+"idle_hold_down": SubResource("Animation_i8bl0"),
+"idle_hold_up": SubResource("Animation_nqtut"),
+"idle_up": SubResource("Animation_qqat2"),
+"walk_up": SubResource("Animation_68qih")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1rg63"]
+height = 29.65
+
+[node name="Player" type="Area2D"]
+position = Vector2(577, 322)
+script = ExtResource("1_6np2y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_13mk3")
+hframes = 12
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_xt113")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1rg63")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7uns0")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
