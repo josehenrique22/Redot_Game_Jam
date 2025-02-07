@@ -1,15 +1,22 @@
-[gd_scene load_steps=14 format=3 uid="uid://bvk276fdk46m7"]
+[gd_scene load_steps=31 format=4 uid="uid://bvk276fdk46m7"]
 
 [ext_resource type="PackedScene" uid="uid://bye3jk1qumaij" path="res://Scenes/player_scene.tscn" id="1_7c6yj"]
 [ext_resource type="PackedScene" uid="uid://di32ui0a041ju" path="res://Scenes/player_scene_2.tscn" id="2_h1xh8"]
 [ext_resource type="Script" path="res://Scripts/player_control_resource.gd" id="2_xx22x"]
 [ext_resource type="PackedScene" uid="uid://bti108at5s5lu" path="res://Scenes/switch_char.tscn" id="3_sykxj"]
 [ext_resource type="Script" path="res://Scripts/switch_players.gd" id="4_bdsve"]
-[ext_resource type="Script" path="res://Scripts/camera_players.gd" id="6_vi5xu"]
 [ext_resource type="PackedScene" uid="uid://brab2hsq7lr5n" path="res://Scenes/object_scene.tscn" id="7_hypj2"]
 [ext_resource type="AudioStream" uid="uid://ch4ojw053gn8h" path="res://Sounds/cute_pick_sound.mp3" id="8_54ame"]
 [ext_resource type="AudioStream" uid="uid://bo71qt3buwpwb" path="res://Sounds/cute_throw_sound.mp3" id="9_2ew4f"]
+[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="9_60clh"]
 [ext_resource type="AudioStream" uid="uid://cfcqlvufr28ub" path="res://Sounds/main_theme.mp3" id="10_u3bll"]
+[ext_resource type="Texture2D" uid="uid://dqoyg8hc16el1" path="res://Assets/Tileset/Tile_set.png" id="11_8bq7b"]
+[ext_resource type="Texture2D" uid="uid://cddnfr2a34rx7" path="res://Assets/Tileset/post_fence.png" id="12_curjq"]
+[ext_resource type="Script" path="res://Scripts/off_area.gd" id="13_gtiek"]
+[ext_resource type="Script" path="res://Scripts/green.gd" id="13_mgq4d"]
+[ext_resource type="Texture2D" uid="uid://svowaunsbe08" path="res://Assets/Tileset/Spr10.png" id="14_dbjah"]
+[ext_resource type="Script" path="res://Scripts/free_escape.gd" id="15_doqak"]
+[ext_resource type="Texture2D" uid="uid://b3yblspjpjyc6" path="res://Assets/Tileset/free.png" id="15_vnfil"]
 
 [sub_resource type="Resource" id="Resource_rw8vj"]
 script = ExtResource("2_xx22x")
@@ -20,10 +27,158 @@ script = ExtResource("2_xx22x")
 [sub_resource type="Resource" id="Resource_abmgq"]
 script = ExtResource("4_bdsve")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cy5ts"]
+texture = ExtResource("11_8bq7b")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qyvg1"]
+texture = ExtResource("12_curjq")
+0:0/0 = 0
+2:0/0 = 0
+4:0/0 = 0
+6:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+11:0/0 = 0
+0:2/0 = 0
+4:2/0 = 0
+11:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+20:2/0 = 0
+8:3/0 = 0
+14:3/0 = 0
+16:3/0 = 0
+20:3/0 = 0
+0:4/0 = 0
+4:4/0 = 0
+11:4/0 = 0
+14:4/0 = 0
+16:4/0 = 0
+20:4/0 = 0
+8:5/0 = 0
+14:5/0 = 0
+16:5/0 = 0
+20:5/0 = 0
+0:6/0 = 0
+4:6/0 = 0
+11:6/0 = 0
+14:6/0 = 0
+16:6/0 = 0
+20:6/0 = 0
+8:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+18:7/0 = 0
+19:7/0 = 0
+20:7/0 = 0
+0:8/0 = 0
+4:8/0 = 0
+11:8/0 = 0
+0:10/0 = 0
+2:10/0 = 0
+4:10/0 = 0
+6:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+11:10/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hntpx"]
+sources/2 = SubResource("TileSetAtlasSource_cy5ts")
+sources/3 = SubResource("TileSetAtlasSource_qyvg1")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_idjmd"]
+texture = ExtResource("12_curjq")
+0:0/0 = 0
+2:0/0 = 0
+4:0/0 = 0
+6:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+11:0/0 = 0
+0:2/0 = 0
+4:2/0 = 0
+11:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+20:2/0 = 0
+8:3/0 = 0
+14:3/0 = 0
+16:3/0 = 0
+20:3/0 = 0
+0:4/0 = 0
+4:4/0 = 0
+11:4/0 = 0
+14:4/0 = 0
+16:4/0 = 0
+20:4/0 = 0
+8:5/0 = 0
+14:5/0 = 0
+16:5/0 = 0
+20:5/0 = 0
+0:6/0 = 0
+4:6/0 = 0
+11:6/0 = 0
+14:6/0 = 0
+16:6/0 = 0
+20:6/0 = 0
+8:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+18:7/0 = 0
+19:7/0 = 0
+20:7/0 = 0
+0:8/0 = 0
+4:8/0 = 0
+11:8/0 = 0
+0:10/0 = 0
+2:10/0 = 0
+4:10/0 = 0
+6:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+11:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_rjuwf"]
+sources/0 = SubResource("TileSetAtlasSource_idjmd")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4ulb"]
+size = Vector2(123, 27.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvevw"]
+size = Vector2(218, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jueg2"]
+size = Vector2(172, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhjfl"]
+size = Vector2(32, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbrid"]
+
 [node name="main_scene" type="Node2D"]
+z_index = -1
+y_sort_enabled = true
 position = Vector2(-8, -83)
 
 [node name="Player" parent="." groups=["player1"] instance=ExtResource("1_7c6yj")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(184, 262)
 control_resource = SubResource("Resource_rw8vj")
 
@@ -31,29 +186,17 @@ control_resource = SubResource("Resource_rw8vj")
 position = Vector2(0, -19)
 
 [node name="Player2" parent="." groups=["player2"] instance=ExtResource("2_h1xh8")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(449, 262)
 control_resource = SubResource("Resource_scalj")
 
 [node name="PointObj2" type="Node2D" parent="Player2"]
 position = Vector2(0, -19)
 
-[node name="SwitchChar" parent="." node_paths=PackedStringArray("player_node_1", "player_node_2") instance=ExtResource("3_sykxj")]
-switch_player = SubResource("Resource_abmgq")
-player_node_1 = NodePath("../Player")
-player_node_2 = NodePath("../Player2")
-
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("point_position_1")]
-position = Vector2(324, 261)
-script = ExtResource("6_vi5xu")
-point_position_1 = NodePath("../PointToCamera/Node2D_point")
-
-[node name="PointToCamera" type="Node" parent="."]
-
-[node name="Node2D_point" type="Node2D" parent="PointToCamera"]
-position = Vector2(313, 175)
-
 [node name="Object" parent="." node_paths=PackedStringArray("point_object_1", "point_object_2", "player1", "player2") groups=["object"] instance=ExtResource("7_hypj2")]
-position = Vector2(283, 214)
+y_sort_enabled = true
+position = Vector2(230, 220)
 point_object_1 = NodePath("../Player/PointObj")
 point_object_2 = NodePath("../Player2/PointObj2")
 player1 = NodePath("../Player")
@@ -67,7 +210,132 @@ volume_db = -2.62
 [node name="throw_sound" type="AudioStreamPlayer2D" parent="Object"]
 stream = ExtResource("9_2ew4f")
 
+[node name="SwitchChar" parent="." node_paths=PackedStringArray("player_node_1", "player_node_2") instance=ExtResource("3_sykxj")]
+switch_player = SubResource("Resource_abmgq")
+player_node_1 = NodePath("../Player")
+player_node_2 = NodePath("../Player2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(324, 261)
+script = ExtResource("9_60clh")
+
 [node name="main_theme_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_u3bll")
 volume_db = -10.263
 autoplay = true
+
+[node name="Green" type="TileMapLayer" parent="."]
+visibility_layer = 2
+z_index = -1
+position = Vector2(2, -37)
+tile_map_data = PackedByteArray("AAAIABUAAgABAAAAAAAIABQAAgABAAAAAAAIABMAAgABAAAAAAAIABIAAgABAAAAAAAIABEAAgABAAAAAAAJABEAAgABAAAAAAAKABEAAgABAAAAAAALABEAAgABAAAAAAAMABEAAgABAAAAAAANABEAAgABAAAAAAAOABEAAgABAAAAAAAOABIAAgABAAAAAAAOABMAAgABAAAAAAAOABQAAgABAAAAAAAOABUAAgABAAAAAAAPABUAAgABAAAAAAANABUAAgABAAAAAAAMABUAAgABAAAAAAALABUAAgABAAAAAAAKABUAAgABAAAAAAAJABUAAgABAAAAAAAJABQAAgABAAAAAAAJABMAAgABAAAAAAAJABIAAgABAAAAAAAKABIAAgABAAAAAAALABIAAgABAAAAAAAMABIAAgABAAAAAAANABIAAgABAAAAAAANABMAAgABAAAAAAAMABMAAgABAAAAAAALABMAAgABAAAAAAAKABMAAgABAAAAAAAKABQAAgABAAAAAAALABQAAgABAAAAAAAMABQAAgABAAAAAAANABQAAgABAAAAAAAPABQAAgABAAAAAAAPABMAAgABAAAAAAAPABIAAgABAAAAAAAOABAAAgABAAAAAAANABAAAgABAAAAAAAMABAAAgABAAAAAAALABAAAgABAAAAAAAKABAAAgABAAAAAAAIABAAAgABAAAAAAAJABAAAgABAAAAAAAPAA8AAgABAAAAAAAOAA8AAgABAAAAAAANAA8AAgABAAAAAAAMAA8AAgABAAAAAAAKAA8AAgABAAAAAAALAA8AAgABAAAAAAAJAA8AAgABAAAAAAAIAA8AAgABAAAAAAAPABEAAgABAAAAAAAPABAAAgABAAAAAAAaABQAAgABAAAAAAAbABQAAgABAAAAAAAcABQAAgABAAAAAAAdABQAAgABAAAAAAAeABQAAgABAAAAAAAZABQAAgABAAAAAAAYABQAAgABAAAAAAAYABMAAgABAAAAAAAYABIAAgABAAAAAAAYABEAAgABAAAAAAAYABAAAgABAAAAAAAYAA8AAgABAAAAAAAYAA4AAgABAAAAAAAZAA8AAgABAAAAAAAaAA8AAgABAAAAAAAbAA8AAgABAAAAAAAcAA8AAgABAAAAAAAdAA8AAgABAAAAAAAeAA8AAgABAAAAAAAeABAAAgABAAAAAAAeABEAAgABAAAAAAAeABIAAgABAAAAAAAeABMAAgABAAAAAAAfABQAAgABAAAAAAAdABMAAgABAAAAAAAdABIAAgABAAAAAAAdABEAAgABAAAAAAAdABAAAgABAAAAAAAcABAAAgABAAAAAAAbABAAAgABAAAAAAAaABAAAgABAAAAAAAZABAAAgABAAAAAAAZABEAAgABAAAAAAAZABIAAgABAAAAAAAZABMAAgABAAAAAAAaABMAAgABAAAAAAAbABMAAgABAAAAAAAcABMAAgABAAAAAAAcABIAAgABAAAAAAAcABEAAgABAAAAAAAbABEAAgABAAAAAAAaABEAAgABAAAAAAAaABIAAgABAAAAAAAbABIAAgABAAAAAAAfABMAAgABAAAAAAAfABIAAgABAAAAAAAfABEAAgABAAAAAAAfABAAAgABAAAAAAAfAA8AAgABAAAAAAAfAA4AAgABAAAAAAAeAA4AAgABAAAAAAAdAA4AAgABAAAAAAAcAA4AAgABAAAAAAAbAA4AAgABAAAAAAAaAA4AAgABAAAAAAAZAA4AAgABAAAAAAAbAA0AAgABAAAAAAAcAA0AAgABAAAAAAAbAAwAAgABAAAAAAAcAAwAAgABAAAAAAALAA4AAgABAAAAAAAMAA4AAgABAAAAAAALAA0AAgABAAAAAAAMAA0AAgABAAAAAAALAAwAAgABAAAAAAAMAAwAAgABAAAAAAALAAsAAgABAAAAAAAMAAsAAgABAAAAAAAbAAsAAgABAAAAAAAcAAsAAgABAAAAAAANAAoAAgABAAAAAAAOAAoAAgABAAAAAAAPAAoAAgABAAAAAAAQAAoAAgABAAAAAAARAAoAAgABAAAAAAASAAoAAgABAAAAAAATAAoAAgABAAAAAAAUAAoAAgABAAAAAAAVAAoAAgABAAAAAAAWAAoAAgABAAAAAAAXAAoAAgABAAAAAAAYAAoAAgABAAAAAAAZAAoAAgABAAAAAAAaAAoAAgABAAAAAAAbAAoAAgABAAAAAAAcAAoAAgABAAAAAAAMAAoAAgABAAAAAAALAAoAAgABAAAAAAALAAkAAgABAAAAAAAMAAkAAgABAAAAAAANAAkAAgABAAAAAAAOAAkAAgABAAAAAAAPAAkAAgABAAAAAAAQAAkAAgABAAAAAAARAAkAAgABAAAAAAASAAkAAgABAAAAAAATAAkAAgABAAAAAAAUAAkAAgABAAAAAAAVAAkAAgABAAAAAAAWAAkAAgABAAAAAAAXAAkAAgABAAAAAAAYAAkAAgABAAAAAAAZAAkAAgABAAAAAAAaAAkAAgABAAAAAAAbAAkAAgABAAAAAAAcAAkAAgABAAAAAAATAAgAAgABAAAAAAATAAcAAgABAAAAAAATAAYAAgABAAAAAAATAAUAAgABAAAAAAATAAQAAgABAAAAAAAUAAQAAgABAAAAAAAUAAUAAgABAAAAAAAUAAYAAgABAAAAAAAUAAcAAgABAAAAAAAUAAgAAgABAAAAAAATAAMAAgABAAAAAAAUAAMAAgABAAAAAAAUAAIAAgABAAAAAAATAAIAAgABAAAAAAATAAEAAgABAAAAAAAUAAEAAgABAAAAAAATAAAAAgABAAAAAAAUAAAAAgABAAAAAAATAP//AgABAAAAAAASAP//AgABAAAAAAARAP//AgABAAAAAAAQAP//AgABAAAAAAAPAP//AgABAAAAAAAOAP//AgABAAAAAAANAP//AgABAAAAAAAMAP//AgABAAAAAAALAP//AgABAAAAAAAKAP//AgABAAAAAAAKAP7/AgABAAAAAAAKAP3/AgABAAAAAAALAP7/AgABAAAAAAAMAP7/AgABAAAAAAANAP7/AgABAAAAAAAOAP7/AgABAAAAAAAPAP7/AgABAAAAAAAQAP7/AgABAAAAAAARAP7/AgABAAAAAAASAP7/AgABAAAAAAATAP7/AgABAAAAAAAUAP//AgABAAAAAAAUAP7/AgABAAAAAAAVAP//AgABAAAAAAAWAP//AgABAAAAAAAXAP//AgABAAAAAAAYAP//AgABAAAAAAAZAP//AgABAAAAAAAaAP//AgABAAAAAAAbAP//AgABAAAAAAAcAP//AgABAAAAAAAdAP//AgABAAAAAAAVAP7/AgABAAAAAAAWAP7/AgABAAAAAAAXAP7/AgABAAAAAAAYAP7/AgABAAAAAAAZAP7/AgABAAAAAAAaAP7/AgABAAAAAAAbAP7/AgABAAAAAAAdAP7/AgABAAAAAAAcAP7/AgABAAAAAAAbAPr/AgABAAAAAAAcAPr/AgABAAAAAAAcAPv/AgABAAAAAAAcAPz/AgABAAAAAAAcAP3/AgABAAAAAAAdAP3/AgABAAAAAAAdAPz/AgABAAAAAAAdAPv/AgABAAAAAAAdAPr/AgABAAAAAAAJAP//AgABAAAAAAAJAP7/AgABAAAAAAAJAP3/AgABAAAAAAAIAP7/AgABAAAAAAAIAP//AgABAAAAAAAIAP3/AgABAAAAAAAIAPz/AgABAAAAAAAIAPv/AgABAAAAAAAIAPr/AgABAAAAAAAJAPr/AgABAAAAAAAKAPr/AgABAAAAAAAKAPv/AgABAAAAAAAKAPz/AgABAAAAAAAJAPz/AgABAAAAAAAJAPv/AgABAAAAAAAIAPn/AgABAAAAAAAJAPn/AgABAAAAAAAKAPn/AgABAAAAAAAbAPn/AgABAAAAAAAcAPn/AgABAAAAAAAdAPn/AgABAAAAAAAIAPj/AgABAAAAAAAJAPj/AgABAAAAAAAJAPf/AgABAAAAAAAKAPf/AgABAAAAAAAKAPj/AgABAAAAAAAIAPf/AgABAAAAAAAbAPj/AgABAAAAAAAbAPf/AgABAAAAAAAcAPf/AgABAAAAAAAdAPf/AgABAAAAAAAdAPj/AgABAAAAAAAcAPj/AgABAAAAAAALAPj/AgABAAAAAAAMAPj/AgABAAAAAAANAPj/AgABAAAAAAAOAPj/AgABAAAAAAAPAPj/AgABAAAAAAAQAPj/AgABAAAAAAARAPj/AgABAAAAAAASAPj/AgABAAAAAAATAPj/AgABAAAAAAAUAPj/AgABAAAAAAAVAPj/AgABAAAAAAAWAPj/AgABAAAAAAAXAPj/AgABAAAAAAAYAPj/AgABAAAAAAAZAPj/AgABAAAAAAAaAPj/AgABAAAAAAAaAPn/AgABAAAAAAAZAPn/AgABAAAAAAAYAPn/AgABAAAAAAAXAPn/AgABAAAAAAAWAPn/AgABAAAAAAAVAPn/AgABAAAAAAAUAPn/AgABAAAAAAATAPn/AgABAAAAAAASAPn/AgABAAAAAAARAPn/AgABAAAAAAAQAPn/AgABAAAAAAAPAPn/AgABAAAAAAAOAPn/AgABAAAAAAANAPn/AgABAAAAAAAMAPn/AgABAAAAAAALAPn/AgABAAAAAAAKAPb/AgABAAAAAAAJAPb/AgABAAAAAAAIAPb/AgABAAAAAAAIAPX/AgABAAAAAAAIAPT/AgABAAAAAAAIAPP/AgABAAAAAAAJAPP/AgABAAAAAAAKAPP/AgABAAAAAAAKAPT/AgABAAAAAAAKAPX/AgABAAAAAAAJAPX/AgABAAAAAAAJAPT/AgABAAAAAAAbAPb/AgABAAAAAAAbAPX/AgABAAAAAAAbAPT/AgABAAAAAAAbAPP/AgABAAAAAAAcAPP/AgABAAAAAAAdAPP/AgABAAAAAAAdAPT/AgABAAAAAAAdAPX/AgABAAAAAAAdAPb/AgABAAAAAAAcAPb/AgABAAAAAAAcAPX/AgABAAAAAAAcAPT/AgABAAAAAAAbAPv/AgABAAAAAAAbAPz/AgABAAAAAAAbAP3/AgABAAAAAAA=")
+tile_set = SubResource("TileSet_hntpx")
+script = ExtResource("13_mgq4d")
+
+[node name="Fence" type="TileMapLayer" parent="Green"]
+tile_map_data = PackedByteArray("AAAIABUAAAAOAAIAAAAJABUAAAAPAAcAAAAKABUAAAAPAAcAAAALABUAAAAPAAcAAAAMABUAAAAPAAcAAAANABUAAAAPAAcAAAAOABUAAAAPAAcAAAAPABUAAAAUAAcAAAAIABQAAAAOAAYAAAAIABMAAAAOAAYAAAAIABIAAAAOAAYAAAAIABEAAAAOAAYAAAAIABAAAAAOAAYAAAAIAA8AAAAOAAMAAAAYABQAAAAOAAcAAAAZABQAAAAPAAcAAAAaABQAAAAPAAcAAAAbABQAAAAPAAcAAAAcABQAAAAPAAcAAAAdABQAAAAPAAcAAAAeABQAAAAPAAcAAAAfABQAAAAUAAcAAAAfABMAAAAUAAUAAAAfABIAAAAUAAUAAAAfABEAAAAUAAUAAAAfABAAAAAUAAUAAAAfAA8AAAAUAAUAAAAfAA4AAAAUAAQAAAAfAA0AAAAUAAIAAAAeAA0AAAARAAIAAAAdAA0AAAAQAAQAAAAIAA4AAAAOAAIAAAAJAA4AAAAPAAIAAAAKAA4AAAAQAAIAAAAPAA4AAAAUAAIAAAAOAA4AAAARAAIAAAANAA4AAAAQAAcAAAAKAA0AAAAQAAYAAAAKAAwAAAAQAAYAAAAKAAsAAAAQAAYAAAAKAAoAAAAQAAYAAAAKAAkAAAAQAAYAAAAdAAwAAAAQAAYAAAAdAAsAAAAQAAYAAAAdAAoAAAAQAAYAAAAdAAkAAAAQAAYAAAAKAAgAAAAIAAMAAAAdAAgAAAAIAAMAAAA=")
+tile_set = SubResource("TileSet_rjuwf")
+
+[node name="off_area" type="Area2D" parent="." node_paths=PackedStringArray("player_1", "player_2", "spawn_point", "spawn_point_2", "obj")]
+position = Vector2(270, 214)
+script = ExtResource("13_gtiek")
+player_1 = NodePath("../Player")
+player_2 = NodePath("../Player2")
+spawn_point = NodePath("../Point_spawn/spawn_1")
+spawn_point_2 = NodePath("../Point_spawn/spawn_2")
+obj = NodePath("../Object")
+offset = Vector2(0, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="off_area" groups=["off_area"]]
+position = Vector2(51.5, 44)
+scale = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_d4ulb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="off_area" groups=["off_area"]]
+position = Vector2(52, -51.5)
+shape = SubResource("RectangleShape2D_fvevw")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="off_area" groups=["off_area"]]
+position = Vector2(30, -23.5)
+shape = SubResource("RectangleShape2D_jueg2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="off_area" groups=["off_area"]]
+position = Vector2(-162, -71)
+scale = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_d4ulb")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="off_area" groups=["off_area"]]
+position = Vector2(263, -92)
+scale = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_d4ulb")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="off_area" groups=["off_area"]]
+position = Vector2(-31, -170)
+scale = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_d4ulb")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="off_area" groups=["off_area"]]
+position = Vector2(134, -169)
+scale = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_d4ulb")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="off_area" groups=["off_area"]]
+position = Vector2(-206, 45)
+scale = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_d4ulb")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="off_area" groups=["off_area"]]
+position = Vector2(-79, 162)
+scale = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_d4ulb")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="off_area" groups=["off_area"]]
+position = Vector2(181, 145)
+scale = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_d4ulb")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="off_area" groups=["off_area"]]
+position = Vector2(309, 34)
+scale = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_d4ulb")
+
+[node name="stop_1" type="Sprite2D" parent="off_area"]
+position = Vector2(-84, -18)
+texture = ExtResource("14_dbjah")
+
+[node name="stop_2" type="Sprite2D" parent="off_area"]
+position = Vector2(-68, -18)
+texture = ExtResource("14_dbjah")
+
+[node name="Escape_1" type="CollisionShape2D" parent="off_area" groups=["off_area"]]
+position = Vector2(-76, -16.5)
+shape = SubResource("RectangleShape2D_yhjfl")
+
+[node name="Point_spawn" type="Node" parent="."]
+
+[node name="spawn_1" type="Node2D" parent="Point_spawn" groups=["off_area"]]
+position = Vector2(192, 176)
+
+[node name="spawn_2" type="Node2D" parent="Point_spawn" groups=["off_area"]]
+position = Vector2(439, 160)
+
+[node name="free_escape" type="Area2D" parent="." node_paths=PackedStringArray("stop_1", "stop_2", "espace_1", "free_colli", "object") groups=["off_area"]]
+position = Vector2(485, 201)
+script = ExtResource("15_doqak")
+stop_1 = NodePath("../off_area/stop_1")
+stop_2 = NodePath("../off_area/stop_2")
+espace_1 = NodePath("../off_area/Escape_1")
+free_colli = NodePath(".")
+object = NodePath("../Object")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="free_escape" groups=["free"]]
+position = Vector2(1, -4)
+shape = SubResource("RectangleShape2D_kbrid")
+
+[node name="Sprite2D" type="Sprite2D" parent="free_escape"]
+position = Vector2(1, -8)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_vnfil")
+
+[connection signal="area_entered" from="off_area" to="off_area" method="_on_area_entered"]
+[connection signal="area_entered" from="free_escape" to="free_escape" method="_on_area_entered"]

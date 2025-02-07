@@ -4,7 +4,6 @@ extends Area2D
 @export var point_object_2:Node2D  
 @export var player1:Node2D
 @export var player2:Node2D
-
 @onready var pick_sound = $pick_sound
 @onready var throw_sound = $throw_sound
 
@@ -21,8 +20,8 @@ var t:float = 0.0
 @export var arc_height:float = 100  
 
 func _ready() -> void:
-	z_index = -1  
-
+	pass
+	
 func _process(delta:float) -> void:
 	if Input.is_action_just_pressed("right_click") and follow_player:
 		throw_sound.play()
