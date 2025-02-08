@@ -4,7 +4,6 @@ extends Node
 
 @export var player_node_1: Node2D
 @export var player_node_2: Node2D
-@onready var camera = $"../Camera2D"
 
 var count:float = 0.0
 var wait_time:float = 0.8

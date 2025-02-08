@@ -6,6 +6,7 @@ extends Area2D
 @export var free_colli:Node2D
 @export var object:Node2D
 @export var free_point:Node2D
+@onready var hit_free_sound = $hit_free_sound
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -21,5 +22,9 @@ func _on_area_entered(area: Area2D) -> void:
 		stop_2.queue_free()
 		espace_1.queue_free()
 		var colli_node = $CollisionShape2D
+		hit_free_sound.play()
 		free_colli.remove_child(colli_node)
 		object.queue_free()
+	
+	if area.is_in_group("win"):
+		print("hit")
