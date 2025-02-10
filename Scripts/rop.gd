@@ -4,7 +4,6 @@ extends Area2D
 @export var p_2: Node2D
 @onready var sprite: Sprite2D = $Rope   
 @onready var win = $"../Win"
-
 var holding_p1 = false
 var holding_p2 = false
 
@@ -21,6 +20,7 @@ func _process(delta: float) -> void:
 
 		# Tornar o 'win' visível quando ambos estiverem segurando o objeto
 		win.visible = true
+			
 	elif holding_p1:
 		global_position = p_1.global_position
 	elif holding_p2:
